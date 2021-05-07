@@ -6,8 +6,8 @@
 если а и b разных знаков, вывести их сумму; ноль можно считать положительным числом. */
 
 let a = Math.floor((Math.random() - .5) * 200), b = Math.floor((Math.random() - .5) * 200);
-console.log(a)
-console.log(b)
+console.log(a);
+console.log(b);
 
 if (a >= 0 & b >= 0) {
     console.log(a - b);
