@@ -3,16 +3,33 @@
 В зависимости от переданного значения операции выполнить одну из арифметических операций 
 (использовать функции из пункта 5) и вернуть полученное значение (использовать switch). */
 
+function addition(arg1, arg2) {
+    return arg1 + arg2;
+}
+
+function subtraction(arg1, arg2) {
+    return arg1 - arg2;
+}
+
+function multiplication(arg1, arg2) {
+    return arg1 * arg2;
+}
+
+function division(arg1, arg2) {
+    return parseInt(arg1 / arg2);
+}
+
+
 function mathOperation(arg1, arg2, operation) {
     switch (operation) {
         case '+':
-            return arg1 + arg2;
+            return addition(arg1, arg2);
         case '-':
-            return arg1 - arg2;
+            return subtraction(arg1, arg2);
         case '*':
-            return arg1 * arg2;
+            return multiplication(arg1, arg2);
         case '/':
-            return parseInt(arg1 / arg2);
+            return division(arg1, arg2);
         default:
             return 'Вы указали что-то не то';
     }
