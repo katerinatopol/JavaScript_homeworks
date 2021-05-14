@@ -13,7 +13,7 @@ while (num < 100) {
             break;
         }
     }
-    if (isSimple == true) {
+    if (isSimple) {
        console.log(num);
     }
     num += 1;
