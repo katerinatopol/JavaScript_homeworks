@@ -7,7 +7,7 @@ xxxx
 xxxxx
 */
 
-for (let i = 1; i <= 20; console.log('*'.repeat(i++))){}
+for (let i = 1; i <= 20; console.log('*'.repeat(i++))) { };
 
 for (let i = 1; i <= 20; i++){
     console.log('*'.repeat(i));
