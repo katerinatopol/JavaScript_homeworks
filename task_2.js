@@ -5,26 +5,16 @@ a) Организовать такой массив для хранения то
 b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
 */
 
-let products = {
-    'apple': 100,
-    'orange': 150,
-    'pear': 120,
-    'cherry': 220
-};
-
-function countBasketPrice(arrBasket) {
-    let sumBasket = 0;
-    for (const value of arrBasket) {
-        sumBasket += products[value['name']] * value['count'];
-    }
-    return sumBasket;
+function countBasketPrice(basket) {
+    return basket.reduce((totalPrice, cartItem) => totalPrice + cartItem[1] * cartItem[2], 0);
 }
 
 
-let userBasket = [
-    { 'name': 'pear', 'count': 2 },
-    { 'name': 'apple', 'count': 5 },
-    { 'name': 'orange', 'count': 1 }
+const basket = [
+    ['pear', 100, 2],
+    ['apple', 80, 5],
+    ['orange', 200, 1],
 ];
 
-console.log(countBasketPrice(userBasket));
+
+console.log(countBasketPrice(basket));
