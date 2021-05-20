@@ -9,10 +9,6 @@
 const basket = {
     content: [],
 
-    addProduct(product) {
-        this.content.push(product);
-    },
-
     countBasketPrice() {
        return this.content.reduce((totalPrice, cartItem) => totalPrice + cartItem.price * cartItem.count, 0);
     }
@@ -23,16 +19,22 @@ function Product(name, price, count) {
     this.name = name;
     this.price = price;
     this.count = count;
+
+    this.addInBasket = function (basket) {
+        basket.content.push(this)
+    };
 }
+
 
 const pear = new Product('pear', 80, 1);
 const apple = new Product('apple', 100, 2);
 const orange = new Product('orange', 120, 3);
 
 
-basket.addProduct(pear);
-basket.addProduct(apple);
-basket.addProduct(orange);
+pear.addInBasket(basket);
+apple.addInBasket(basket);
+orange.addInBasket(basket);
 
 
+console.log(basket.content);
 console.log(basket.countBasketPrice());
