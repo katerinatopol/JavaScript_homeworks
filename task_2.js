@@ -18,26 +18,21 @@ const basket = {
     }
 }
 
-const pear = {
-    name: 'pear',
-    price: 100,
-    count: 2
+
+function Product(name, price, count) {
+    this.name = name;
+    this.price = price;
+    this.count = count;
 }
 
-const apple = {
-    name: 'apple',
-    price: 80,
-    count: 1
-}
+const pear = new Product('pear', 80, 1);
+const apple = new Product('apple', 100, 2);
+const orange = new Product('orange', 120, 3);
 
-const orange = {
-    name: 'orange',
-    price: 120,
-    count: 3
-}
 
 basket.addProduct(pear);
 basket.addProduct(apple);
 basket.addProduct(orange);
+
 
 console.log(basket.countBasketPrice());
