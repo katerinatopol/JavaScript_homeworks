@@ -91,7 +91,7 @@ function render(basketUser) {
     //console.log(resCount);
     //console.log(basketUser.countBasketPrice());
 
-    if (allPrice === 0 && resCount === 0) {
+    if (resCount === 0) {
         div.insertAdjacentText('afterbegin', 'Корзина пуста');
     }
     else {
