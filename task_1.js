@@ -27,11 +27,6 @@ const catalog = {
     cart: null,
     list: [],
 
-    /**
-     * Инициальзация каталога.
-     * @param catalogBlockClass - класс блока каталога
-     * @param cart - корзина
-     */
     init(catalogBlockClass, cart) {
         this.catalogBlock = document.querySelector(`.${catalogBlockClass}`);
         this.cart = cart;
@@ -39,9 +34,6 @@ const catalog = {
         this.addEventHandlers();
     },
 
-    /**
-     * Рендер каталога
-     */
     render() {
         if (this.getCatalogListLength() > 0) {
             this.renderCatalogList();
@@ -50,16 +42,10 @@ const catalog = {
         }
     },
 
-    /**
-     * Добавляем обработку событий
-     */
     addEventHandlers() {
         this.catalogBlock.addEventListener('click', event => this.addToBasket(event));
     },
 
-    /**
-     * Метод добавления в корзину
-     */
     addToBasket(event) {
         if (!event.target.classList.contains('product__add-to-cart')) return;
         const id_product = +event.target.dataset.id_product;
@@ -67,17 +53,10 @@ const catalog = {
         this.cart.addToBasket(productToAdd);
     },
 
-    /**
-     * Метод получения количества товаров в каталоге
-     * @returns {number}
-     */
     getCatalogListLength() {
         return this.list.length;
     },
 
-    /**
-     * Рендер списка товаров
-     */
     renderCatalogList() {
         this.catalogBlock.innerHTML = '';
         this.list.forEach(item => {
@@ -85,11 +64,6 @@ const catalog = {
         });
     },
 
-    /**
-     * Рендер отдельного товара из списка
-     * @param item - товар
-     * @returns {string} - сгенерированая строка разметки
-     */
     renderCatalogItem(item) {
         return `<div class="product">
                 <h3>${item.product_name}</h3>
@@ -98,9 +72,6 @@ const catalog = {
             </div>`;
     },
 
-    /**
-     * Рендер пустого каталога
-     */
     renderEmptyCatalog() {
         this.catalogBlock.innerHTML = '';
         this.catalogBlock.textContent = 'Каталог товаров пуст.';
@@ -108,46 +79,28 @@ const catalog = {
 };
 
 
-/**
- *  Объект корзины
- */
+/* Объект корзины */
 const cart = {
     cartBlock: null,
     clrCartButton: null,
     goods: [],
 
-    /**
-     * Метод инициальзации корзины
-     * @param cartBlockClass - класс блока корзины
-     * @param clrCartButton - класс кнопки очистки корзины
-     */
     init(cartBlockClass, clrCartButton) {
         this.cartBlock = document.querySelector(`.${cartBlockClass}`);
         this.clrCartButton = document.querySelector(`.${clrCartButton}`);
-
-
         this.addEventHandlers();
         this.render();
     },
 
-    /**
-     * Метод установки обработчиков событий
-     */
     addEventHandlers() {
         this.clrCartButton.addEventListener('click', this.dropCart.bind(this));
     },
 
-    /**
-     * Метод очистки корзины
-     */
     dropCart() {
         this.goods = [];
         this.render();
     },
 
-    /**
-     * Рендер корзины
-     */
     render() {
         if (this.getCartGoodsLength() > 0) {
             this.renderCartList();
@@ -156,9 +109,6 @@ const cart = {
         }
     },
 
-    /**
-     * Добавить товар
-     */
     addToBasket(product) {
         if (product) {
             const findInBasket = this.goods.find((item) => product.id_product === item.id_product);
@@ -173,25 +123,15 @@ const cart = {
         }
     },
 
-    /**
-     * Получение количества товаров в корзине
-     * @returns {number}
-     */
     getCartGoodsLength() {
         return this.goods.length;
     },
 
-    /**
-     * Рендер пустой корзины
-     */
     renderEmptyCart() {
         this.cartBlock.innerHTML = '';
         this.cartBlock.insertAdjacentHTML('beforeend', 'Корзина пуста.');
     },
 
-    /**
-     * Рендер списка товаров в корзине
-     */
     renderCartList() {
         
         this.cartBlock.innerHTML = '';
@@ -200,11 +140,6 @@ const cart = {
         });
     },
 
-    /**
-     * Рендер отдельного товара в корзине
-     * @param item - товар
-     * @returns {string} - сгененрированая строка разметки
-     */
     renderCartItem(item) {
         return `<div>
                 <h3>${item.product_name}</h3>
@@ -214,9 +149,7 @@ const cart = {
     },
 };
 
-/**
- * Подключение каталога и корзины
- */
+/* Подключение каталога и корзины */
 const pear = new Product(1, 'pear', 80, );
 const apple = new Product(2, 'apple', 100, );
 const orange = new Product(3, 'orange', 120, );
