@@ -173,7 +173,15 @@ const map = {
         breakCell.classList.add('break');
         // Добавляем элемент ячейки препятствие в массив занятых точек на карте.
         this.usedCells.push(breakCell);
-    
+
+        /* Вот этот цикл
+        for (let step = 0; step < 5; step++){
+            let breakCell = this.cells[`x${breakPoint.x}_y${breakPoint.y}`];
+            breakPoint.x++;
+            breakCell.classList.add('break');
+            this.usedCells.push(breakCell);
+        }
+         */      
     },
 };
 
