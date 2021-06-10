@@ -757,7 +757,6 @@ const game = {
     isGameOver() {
         return this.snake.getBody().length < 1;
     },
-
     /**
      * Проверяет возможен ли следующий шаг.
      * @returns {boolean} true если следующий шаг змейки возможен, false если шаг не может быть совершен.
